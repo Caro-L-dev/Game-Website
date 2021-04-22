@@ -5,6 +5,10 @@
   "repository": "https://github.com/Caro-L-dev/Game-Website.git",
   "author": "Caro-L-dev <liardcar@gmail.com>",
   "license": "MIT",
+
+  "scripts": {
+    "type:check": "tsc"
+  },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "react": "^17.0.2",
