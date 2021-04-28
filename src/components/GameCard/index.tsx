@@ -1,6 +1,8 @@
 import React, { ReactElement } from 'react';
 import { Game } from 'types';
 import { StyledLink, Img, Title, Details, Description, Genre } from './styles';
+import windowsIcon from 'assets/icons/windows.svg';
+import browserIcon from 'assets/icons/browser.svg';
 
 interface Props {
    content: Game 
@@ -13,13 +15,12 @@ const GameCard = ({ content }: Props): ReactElement => {
 
     return (
         <StyledLink to={link}>
-        <Img alt={`${title} logo`} src={thumbnail} />
-        <Details>
-            <Title>{title}</Title>
-            <Description>{short_description}</Description>
-            <Genre>{genre}</Genre>
-        </Details>
-  
+            <Img alt={`${title} logo`} src={thumbnail} />
+            <Details>
+                <Title>{title}</Title>
+                <Description>{short_description}</Description>
+                <Genre>{genre}</Genre>
+            </Details>
         </StyledLink>
     )
 }
