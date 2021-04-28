@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { backgroundColor, primaryTextColor, secondaryColor, secondaryTextColor, tertiaryTextColor } from 'styles/theme';
+import { breakpoints } from 'styles/breakpoints';
 
 export const StyledLink = styled(Link) `
     display: inline-block;
@@ -19,15 +20,29 @@ export const Title = styled.h2`
    font-size: 2em;
    font-weight: 510;
    color: ${primaryTextColor};
+
+   @media (min-width: ${breakpoints.tablet}) {
+		overflow: hidden;
+      text-overflow: ellipsis;
+	}
 `
 
 export const Details = styled.div`
    padding: 1em;
+
+   @media (min-width: ${breakpoints.tablet}) {
+		white-space: nowrap;
+	}
 `
 
 export const Description = styled.p`
     font-size: 16px;
     color: ${secondaryTextColor};
+
+    @media (min-width: ${breakpoints.tablet}) {
+		overflow: hidden;
+      text-overflow: ellipsis;
+	}
 `
 
 export const Genre = styled.p`
