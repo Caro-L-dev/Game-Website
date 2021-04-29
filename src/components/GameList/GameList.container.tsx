@@ -3,8 +3,10 @@ import GameListRender from './GameList.render';
 import axios from 'axios';
 import { Game } from 'types';
 import { API_HOST, API_KEY } from './constants';
+import { Filter } from './types';
 
 const GameList = (): ReactElement => {
+    const [filter, setFilter] = useState<Filter>({ platform: 'browser', sortBy: 'relevance' })
     const [games, setGames] = useState<Game[]>([])
     const [error, setError] = useState<string>('')
 
@@ -24,7 +26,15 @@ const GameList = (): ReactElement => {
         .catch(event => setError(event.message))
     }, [])
 
-    return <GameListRender error={error} games={games} />
+    const onFilterChange = useCallBack((event: ChangeEvent<HTMLFontElement>) => {
+        setFilter(current => ({
+            ...current,
+            [event.target.name] : event.target.value
+        }))
+        event.preventDefault()
+    }, [])
+
+    return <GameListRender error={error} games={games} onFilterChange={onFilterChange} />
 }
 
 export default GameList;
