@@ -1,11 +1,11 @@
-import React, { ReactElement } from 'react';
+import React, { ChangeEvent, ReactElement } from 'react';
 import { GENRES, PLATFORMS, SORT_BY } from './constants';
 
 interface Props {
     onChange: (event: ChangeEvent<HTMLFormElement>) => void;
 }
 const GameFilter = ({ onchange }: Props): ReactElement => (
-    <form>
+    <form onChange ={onchange}>
         <label htmlFor="platform-select">
             Platform:
             <select name="platform" id="platform-select">
